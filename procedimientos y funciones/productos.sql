@@ -78,10 +78,12 @@ BEGIN
         p.estado,
         c.nombre AS categoria,
         l.nombre_linea AS linea,
+        pr.nombre AS proveedor,
         p.fecha_registro
     FROM Productos p
     LEFT JOIN Categorias c ON p.cod_categoria = c.cod_categoria
     LEFT JOIN Lineas l ON p.cod_linea = l.cod_linea
+    LEFT JOIN Proveedores pr ON l.ruc = pr.ruc
     WHERE p.estado = 'disponible';
 END $$
 DELIMITER ;
@@ -99,10 +101,12 @@ BEGIN
         p.estado,
         c.nombre AS categoria,
         l.nombre_linea AS linea,
+        pr.nombre AS proveedor,
         p.fecha_registro
     FROM Productos p
     LEFT JOIN Categorias c ON p.cod_categoria = c.cod_categoria
     LEFT JOIN Lineas l ON p.cod_linea = l.cod_linea
+    LEFT JOIN Proveedores pr ON l.ruc = pr.ruc
     WHERE p.estado = 'agotado';
 END $$
 DELIMITER ;
@@ -149,11 +153,13 @@ BEGIN
         p.estado,
         c.nombre AS nombre_categoria,
         l.nombre_linea AS nombre_linea,
+        pr.nombre AS proveedor,
         p.fecha_registro
     FROM 
         Productos p
     LEFT JOIN Categorias c ON p.cod_categoria = c.cod_categoria
     LEFT JOIN Lineas l ON p.cod_linea = l.cod_linea
+    LEFT JOIN Proveedores pr ON l.ruc = pr.ruc
     WHERE 
         p.cod_producto = p_cod_producto;
 END $$
