@@ -20,10 +20,30 @@ END $$
 DELIMITER ;
 
 -- ==============================================
+--    Funcion Existe Producto por cod_producto
+-- ==============================================
+-- En el Frontend:
+-- Este procedimiento se utiliza para obtener un producto por su ID
+-- Devuelve 1 si el producto existe, de lo contrario devuelve 0
+-- ==============================================
+DELIMITER $$
+CREATE FUNCTION IF NOT EXISTS ExisteProducto(p_cod_producto INT)
+RETURNS BOOLEAN
+DETERMINISTIC
+BEGIN
+    RETURN EXISTS (
+        SELECT 1 
+        FROM Productos 
+        WHERE cod_producto = p_cod_producto
+    );
+END $$
+DELIMITER ;
+
+-- ==============================================
 --                POST Productos
 -- ==============================================
 -- En el Frontend:
--- Se debe validar que el stock no sea mayor a 0
+-- Se debe validar que el stock sea mayor a 0
 -- Se debe validar que el precio de compra y venta sean mayores a 0
 -- Se debe validar que el precio de venta sea mayor al precio de compra
 -- Se debe validar que no exista un producto con el mismo nombre con la función ExisteProductoPorNombre
@@ -112,26 +132,6 @@ END $$
 DELIMITER ;
 
 -- ==============================================
---                Funcion Producto por ID
--- ==============================================
--- En el Frontend:
--- Este procedimiento se utiliza para obtener un producto por su ID
--- Devuelve 1 si el producto existe, de lo contrario devuelve 0
--- ==============================================
-DELIMITER $$
-CREATE FUNCTION IF NOT EXISTS ExisteProducto(p_cod_producto INT)
-RETURNS BOOLEAN
-DETERMINISTIC
-BEGIN
-    RETURN EXISTS (
-        SELECT 1 
-        FROM Productos 
-        WHERE cod_producto = p_cod_producto
-    );
-END $$
-DELIMITER ;
-
--- ==============================================
 --                GET Producto por ID
 -- ==============================================
 -- En el Frontend:
@@ -171,7 +171,7 @@ DELIMITER ;
 -- En el Frontend:
 -- Se debe validar que el precio de compra y venta sean mayores a 0
 -- Se debe validar que el precio de venta sea mayor al precio de compra
--- Se debe validar que no exista un producto con el mismo nombre con la funcion ExisteProductoPorNombre (excepto si el nombre no ha cambiado)
+-- Se debe validar que no exista un producto con el mismo nombre con la funcion ExisteProductoPorNombre (excepto si el nombre no ha cambiado) PROBAR
 -- Se debe hacer un seleccionador para las categorías y líneas: el producto solo puede contener 1 categoría y 1 línea
 -- Se debe consultar con la funcion ExisteProducto antes de llamar a este procedimiento: si el producto no existe, se debe mostrar un mensaje de error en el cliente
 -- Campos obligatorios: nombre, precio_compra, precio_venta, stock, estado
