@@ -50,7 +50,7 @@ DELIMITER ;
 -- ===============================================
 DELIMITER $$
 CREATE PROCEDURE IF NOT EXISTS AgregarLinea(
-    IN p_ruc CHAR(11),
+    IN p_ruc CHAR(11), -- Puede ser NULL
     IN p_nombre_linea VARCHAR(100)
 )
 BEGIN
