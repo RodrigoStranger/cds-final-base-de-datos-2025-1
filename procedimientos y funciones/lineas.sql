@@ -43,7 +43,7 @@ DELIMITER ;
 -- ===============================================
 -- En el Frontend:
 -- El nombre de la linea no debe estar vacío
--- Se debe validar que el nombre de la linea no exista en la base de datos con la función ExisteLineaPorNombre
+-- Se debe validar que el nombre de la linea no exista en la base de datos
 -- Se debe hacer un seleccionador para los proveedores: la línea solo puede contener 1 proveedor
 -- Campos obligatorios: nombre_linea
 -- Campos opcionales: ruc (null)
@@ -101,7 +101,7 @@ DELIMITER ;
 -- ===============================================
 -- En el Frontend:
 -- El nombre de la linea no debe estar vacío
--- Se debe validar que el nombre de la linea no exista en la base de datos con la función ExisteLineaPorNombre
+-- Se debe validar que el nombre de la linea no exista en la base de datos
 -- Se debe hacer un seleccionador para los proveedores: la línea solo puede contener 1 proveedor
 -- Campos obligatorios: cod_linea, nombre_linea
 -- Campos opcionales: ruc (null)
