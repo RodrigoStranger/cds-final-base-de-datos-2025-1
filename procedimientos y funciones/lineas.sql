@@ -25,7 +25,7 @@ DELIMITER ;
 --                 GET Lineas
 -- ===============================================
 DELIMITER $$
-CREATE PROCEDURE IF NOT EXISTS ObtenerLineas()
+CREATE PROCEDURE IF NOT EXISTS ObtenerTodasLasLineas()
 BEGIN
     SELECT 
         l.cod_linea,
@@ -42,7 +42,7 @@ DELIMITER ;
 --            GET Linea por cod_linea
 -- ===============================================
 DELIMITER $$
-CREATE PROCEDURE IF NOT EXISTS ObtenerLineaPorCodLinea(
+CREATE PROCEDURE IF NOT EXISTS ObtenerLineaPorId(
     IN p_cod_linea INT
 )
 BEGIN
