@@ -14,7 +14,7 @@ BEGIN
     RETURN EXISTS (
         SELECT 1 
         FROM Productos 
-        WHERE nombre = p_nombre
+        WHERE LOWER(nombre) = LOWER(p_nombre) -- Comparación insensible a mayúsculas y minúsculas
     );
 END $$
 DELIMITER ;
@@ -96,9 +96,9 @@ BEGIN
         p.precio_venta,
         p.stock,
         p.estado,
-        c.nombre AS categoria,
-        l.nombre_linea AS linea,
-        pr.nombre AS proveedor,
+        c.nombre AS categoria, -- Puede ser NULL
+        l.nombre_linea AS linea, -- Puede ser NULL
+        pr.nombre AS proveedor, -- Puede ser NULL
         p.fecha_registro
     FROM Productos p
     LEFT JOIN Categorias c ON p.cod_categoria = c.cod_categoria
@@ -119,9 +119,9 @@ BEGIN
         p.precio_venta,
         p.stock,
         p.estado,
-        c.nombre AS categoria,
-        l.nombre_linea AS linea,
-        pr.nombre AS proveedor,
+        c.nombre AS categoria, -- Puede ser NULL
+        l.nombre_linea AS linea, -- Puede ser NULL
+        pr.nombre AS proveedor, -- Puede ser NULL
         p.fecha_registro
     FROM Productos p
     LEFT JOIN Categorias c ON p.cod_categoria = c.cod_categoria
@@ -133,10 +133,6 @@ DELIMITER ;
 
 -- ==============================================
 --                GET Producto por ID
--- ==============================================
--- En el Frontend:
--- Se debe consultar con la funcion ExisteProducto antes de llamar a este procedimiento
--- Si el producto no existe, se debe mostrar un mensaje de error en el cliente
 -- ==============================================
 DELIMITER $$
 CREATE PROCEDURE IF NOT EXISTS ObtenerProductoPorId(
@@ -151,9 +147,9 @@ BEGIN
         p.precio_venta,
         p.stock,
         p.estado,
-        c.nombre AS nombre_categoria,
-        l.nombre_linea AS nombre_linea,
-        pr.nombre AS proveedor,
+        c.nombre AS nombre_categoria, -- Puede ser NULL
+        l.nombre_linea AS nombre_linea, -- Puede ser NULL
+        pr.nombre AS proveedor, -- Puede ser NULL
         p.fecha_registro
     FROM 
         Productos p
