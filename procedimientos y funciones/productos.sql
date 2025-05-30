@@ -171,7 +171,6 @@ DELIMITER ;
 -- En el Frontend:
 -- Se debe validar que el precio de compra y venta sean mayores a 0
 -- Se debe validar que el precio de venta sea mayor al precio de compra
--- Se debe validar que no exista un producto con el mismo nombre con la funcion ExisteProductoPorNombre (excepto si el nombre no ha cambiado) PROBAR
 -- Se debe hacer un seleccionador para las categorías y líneas: el producto solo puede contener 1 categoría y 1 línea
 -- Se debe consultar con la funcion ExisteProducto antes de llamar a este procedimiento: si el producto no existe, se debe mostrar un mensaje de error en el cliente
 -- Campos obligatorios: nombre, precio_compra, precio_venta, stock, estado
