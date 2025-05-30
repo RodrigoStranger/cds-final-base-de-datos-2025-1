@@ -44,12 +44,12 @@ CREATE PROCEDURE IF NOT EXISTS AgregarProducto(
 BEGIN
     INSERT INTO Productos (
         nombre, 
-        descripcion, 
+        descripcion, -- Puede ser NULL 
         precio_compra,
         precio_venta,
         stock, 
-        cod_categoria,
-        cod_linea
+        cod_categoria, -- Puede ser NULL
+        cod_linea -- Puede ser NULL
     ) VALUES (
         p_nombre, 
         p_descripcion, 
@@ -183,13 +183,13 @@ DELIMITER $$
 CREATE PROCEDURE IF NOT EXISTS ActualizarProducto(
     IN p_cod_producto INT,
     IN p_nombre VARCHAR(100),
-    IN p_descripcion TEXT,
+    IN p_descripcion TEXT, -- Puede ser NULL
     IN p_precio_compra FLOAT,
     IN p_precio_venta FLOAT,
     IN p_stock INT,
     IN p_estado ENUM('disponible', 'agotado'),
-    IN p_cod_categoria INT,
-    IN p_cod_linea INT
+    IN p_cod_categoria INT, -- Puede ser NULL
+    IN p_cod_linea INT -- Puede ser NULL
 )
 BEGIN
     UPDATE Productos
