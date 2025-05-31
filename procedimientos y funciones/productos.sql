@@ -8,6 +8,7 @@ USE FabiaNatura;
 -- Se debe validar que el precio de compra y venta sean mayores a 0
 -- Se debe validar que el precio de venta sea mayor al precio de compra
 -- Se debe validar que no exista un producto con el mismo nombre
+-- El nombre del producto no debe estar vacío
 -- Se debe hacer un seleccionador para las categorías y líneas: el producto solo puede contener 1 categoría y 1 línea
 -- Campos obligatorios: nombre, precio_compra, precio_venta, stock
 -- Campos opcionales: descripcion, cod_categoria, cod_linea (null)
@@ -130,6 +131,7 @@ DELIMITER ;
 -- Se debe validar que el precio de venta sea mayor al precio de compra
 -- Se debe hacer un seleccionador para las categorías y líneas: el producto solo puede contener 1 categoría y 1 línea
 -- Se debe consultar si el nuevo nombre del producto ya existe en la base de datos
+-- El nombre del producto no debe estar vacío
 -- Campos obligatorios: nombre, precio_compra, precio_venta, stock, estado
 -- Campos opcionales: descripcion, cod_categoria, cod_linea (null)
 -- Si se marca el producto como agotado, la casilla de stock debe ser 0 (se bloquea a 0)
