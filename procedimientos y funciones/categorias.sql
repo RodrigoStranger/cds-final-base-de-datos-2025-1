@@ -76,4 +76,4 @@ BEGIN
         fecha_registro = CURRENT_TIMESTAMP
     WHERE cod_categoria = p_cod_categoria;
 END $$
-DELIMITER ;
+DELIMITER ;   
