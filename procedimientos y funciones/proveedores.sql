@@ -92,10 +92,10 @@ BEGIN
         nombre = p_nombre,
         fecha_registro = CURRENT_TIMESTAMP
     WHERE ruc = p_ruc;
+
     UPDATE Telefonos_Proveedores
     SET 
-        telefono = p_telefonoProveedor,
-        fecha_registro = CURRENT_TIMESTAMP
+        telefono = p_telefonoProveedor
     WHERE ruc = p_ruc;
 END $$
-DELIMITER;
+DELIMITER ;
